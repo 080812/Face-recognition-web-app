@@ -15,8 +15,8 @@ function takesnapshot(){
 
     });
 }
-console.log("ml5version",ml5.version)
-classifier=ml5.imageClassifier(' https://teachablemachine.withgoogle.com/models/nE22zgrjJ/model.json',modelloaded)
+console.log("ml5 version",ml5.version)
+classifier=ml5.imageClassifier('https://teachablemachine.withgoogle.com/models/nE22zgrjJ/model.json',modelloaded)
 function modelloaded(){
     console.log("model is loaded")
 }
@@ -32,5 +32,8 @@ function gotresult(error,results){
     }
 else{
     console.log(results)
+    document.getElementById("resultpersoname").innerHTML= results[0].label;
+    document.getElementById("resltpersonaccuracy").innerHTML= results[0].confidence.toFixed(3);
+  
 }
 }
